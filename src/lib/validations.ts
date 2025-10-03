@@ -18,7 +18,7 @@ export const signupSchema = z.object({
     .min(8, "Password must be at least 8 characters")
     .max(128, "Password must be less than 128 characters"),
   confirmPassword: z.string(),
-  role: z.enum(["user", "moderator", "admin"], {
+  role: z.enum(["student", "mentor", "administrator"], {
     required_error: "Please select a role",
   }),
 }).refine((data) => data.password === data.confirmPassword, {
